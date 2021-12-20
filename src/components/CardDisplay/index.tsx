@@ -1,13 +1,16 @@
-// interface ContentData {
-
-// }
+interface ItemData {
+  _intro?: ItemData | ItemData[]
+  nextPart?: string
+  any?: string
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  localVariables?: Record<string, ItemData | ItemData[]>
+}
 
 interface CardData {
   id: number
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   name: Record<string, string>
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  content: Record<string, any>
+  content: Record<string, ItemData | ItemData[] | any>
 }
 
 interface DeckData {
@@ -33,6 +36,7 @@ export function CardDisplay({ data }: CardProps) {
       <h3>{data.cards?.[0].name[lang] as string}</h3>
       <h4>{data.cards?.[0].content._intro[lang] as string}</h4>
       {data.cards?.[0].content._intro?.nextPart && <h5>Opa Data!</h5>}
+      {data.cards[0].content}
     </>
   )
 }
