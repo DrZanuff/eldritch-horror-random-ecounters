@@ -1,0 +1,61 @@
+{
+  "author": "DrZanuff",
+  "version": 0.1,
+  "languages": ["pt-br", "en-us"],
+  "variables": {
+    "smallScope": {
+      "sanFranciso": {
+        "pt-br": ["da Praia Baker"],
+        "en-us": ["Baker Beach"]
+      }
+    }
+  },
+  "cards": [
+    {
+      "id": 0,
+      "name": {
+        "pt-br": "Um chamado perigoso",
+        "en-us": "A dangerous call"
+      },
+      "content": {
+        "intro": {
+          "pt-br": "Você está a caminho %/smallScope/%.$/[Um telegrama | Um bilhete com letras estranhas| Uma carta com letras de sangue]/$ que você recebeu sem remetente lhe informou para se encontrar neste local. Na mensagem há um símbolo estranho desenhado na parte de trás.",
+          "en-us": "You are on your way %/smallScope/%.$/[A telegram | A note with strange letters | A letter with blood letters]/$ that you would go without a sender informed you to meet at this location. In the message there is a strange strange symbol on the back.",
+          "nextPart": "localReward"
+        },
+
+        "localReward": {
+          "any": "$/_local/$",
+          "localVariables": {
+            "sanFran": {
+              "pt-br": "Antes de ir o seu contato na cidade disse para tomar cuidado, pois o local em questão é um lugar perigoso. Ele lhe deu algumas dicas dos arredores e para prestar atenção em alguns sinais que podem indicar perigo. Melhore $/{icon:observation}/$",
+              "en-us": "Before going, your contact in town told you to be careful, as the place in question is a dangerous place. He gave you some hints of the surroundings and to watch out for some signs that might indicate danger. Improve $/{icon:observation}/$"
+            },
+            "arkham": {
+              "pt-br": "No trem, estudando a mensagem você percebeu que uma mensagem criptografada $/{icon:observation}/$. Se passar você descobre um cântico de uma antiga tribo que invoca uma magia perdida. Receba uma magia.",
+              "en-us": "On the train, studying the message you noticed an encrypted message $/{icon:observation}/$. If you pass, you discover a chant from an ancient tribe that summons a lost magic. Gain a spell."
+            },
+            "buenosAires": {
+              "pt-br": "No trem, estudando a mensagem você percebeu que uma mensagem criptografada $/{icon:observation}/$. Se passar você descobre um cântico de uma antiga tribo que invoca uma magia perdida. Receba uma magia.",
+              "en-us": "On the train, studying the message you noticed an encrypted message $/{icon:observation}/$. If you pass, you discover a chant from an ancient tribe that summons a lost magic. Gain a spell."
+            },
+            "london": {
+              "pt-br": "O símbolo pertence a uma ordem arcana extinta. Isso gerou algumas especulações sobre a origem da mensagem. Faça aparecer uma pista.",
+              "en-us": "The symbol belongs to an extinct arcane order. This has generated some speculation about the origin of the message. Make appear a clue."
+            },
+            "rome": [
+              {
+                "pt-br": "O padre falou que o lugar que você está se dirigindo é amaldiçoado pela igreja. Preocupado com sua segurança e a da importância da sua missão, ele abençoa sua jornada. Receba uma condição de abençoado.",
+                "en-us": "The priest said the place you're heading to is cursed by the church. Concerned about your safety and the importance of your mission, he blesses your journey. Receive a blessed condition."
+              },
+              {
+                "pt-br": "O escriba da igreja reconheceu o símbolo sendo um brasão de uma família fundadora da cidade. Ele lhe conta a história da família que lutou contra um antigo mal parecido com o que você está enfrentando agora. Melhore $/{icon:will}/$",
+                "en-us": "The church scribe recognized the symbol as a coat of arms of a founding family of the city. He tells you the story of the family who struggled with an ancient evil similar to the one you are now facing. Improve $/{icon:will}/$"
+              }
+            ]
+          }
+        }
+      }
+    }
+  ]
+}
