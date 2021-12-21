@@ -3,52 +3,52 @@
   "version": 0.1,
   "languages": ["pt-br", "en-us"],
   "dependencies": [],
-  "variables": {
-    "smallScope": {
-      "sanFranciso": {
-        "pt-br": ["da Praia Baker"],
-        "en-us": ["Baker Beach"]
-      }
-    },
-    "person": [
-      {
-        "aPerson": {
-          "pt-bt": "Uma figura encapuzada",
-          "en-us": "A hooded figure"
-        },
-        "thePerson": {
-          "pt-br": "A figura encapuzada",
-          "en-us": "The hooded figure"
-        }
-      },
-      {
-        "aPerson": {
-          "pt-bt": "Um homen com olhos estranhos",
-          "en-us": "a man with strange eyes"
-        },
-        "thePerson": {
-          "pt-br": "O homen com olhos estranhos",
-          "en-us": "The man with strange eyes"
-        }
-      },
-      {
-        "aPerson": {
-          "pt-bt": "Uma senhora com trapos velhos",
-          "en-us": "A lady with old rags"
-        },
-        "thePerson": {
-          "pt-br": "A senhora com trapos velhos",
-          "en-us": "The lady with old rags"
-        }
-      }
-    ]
-  },
   "cards": [
     {
       "id": 0,
       "name": {
         "pt-br": "Um chamado perigoso",
         "en-us": "A dangerous call"
+      },
+      "variables": {
+        "smallScope": {
+          "sanFranciso": {
+            "pt-br": ["da Praia Baker"],
+            "en-us": ["Baker Beach"]
+          }
+        },
+        "person": [
+          {
+            "aPerson": {
+              "pt-bt": "Uma figura encapuzada",
+              "en-us": "A hooded figure"
+            },
+            "thePerson": {
+              "pt-br": "A figura encapuzada",
+              "en-us": "The hooded figure"
+            }
+          },
+          {
+            "aPerson": {
+              "pt-bt": "Um homen com olhos estranhos",
+              "en-us": "a man with strange eyes"
+            },
+            "thePerson": {
+              "pt-br": "O homen com olhos estranhos",
+              "en-us": "The man with strange eyes"
+            }
+          },
+          {
+            "aPerson": {
+              "pt-bt": "Uma senhora com trapos velhos",
+              "en-us": "A lady with old rags"
+            },
+            "thePerson": {
+              "pt-br": "A senhora com trapos velhos",
+              "en-us": "The lady with old rags"
+            }
+          }
+        ]
       },
       "content": {
         "_intro": {
@@ -58,7 +58,7 @@
         },
 
         "localReward": {
-          "any": "$/_local/$",
+          "anyLanguage": "$/_local/$",
           "localVariables": {
             "sanFran": {
               "pt-br": "Antes de ir o seu contato na cidade disse para tomar cuidado, pois o local em questão é um lugar perigoso. Ele lhe deu algumas dicas dos arredores e para prestar atenção em alguns sinais que podem indicar perigo. Aprimore $/{icon:observation}/$",
