@@ -1,5 +1,5 @@
 interface LanguageOptions {
-  [key: string]: string | string[]
+  [key: string]: string
 }
 
 interface LocalVariable {
@@ -23,11 +23,52 @@ export interface CardData {
   id: number
   name: Record<string, string>
   content: Record<string, ItemData>
+  variables: unknown
 }
 
 export interface DeckData {
   author: string
   version: number
   languages: string[]
+  // type: 'CityLocations' | 'GenericLocations'
+  type: 'CityLocations' | 'GenericLocations'
   cards: CardData[]
 }
+
+export enum LocationsList {
+  sanFran = 'sanFran',
+  arkham = 'arkham',
+  buenosAires = 'buenosAires',
+  london = 'london',
+  rome = 'rome',
+  istambul = 'istambul',
+  shanghai = 'shanghai',
+  tokyo = 'tokyo',
+  sidney = 'sidney',
+  city = 'city',
+  wild = 'wild',
+  sea = 'sea',
+}
+
+export type Locations =
+  | 'sanFran'
+  | 'arkham'
+  | 'buenosAires'
+  | 'london'
+  | 'rome'
+  | 'istambul'
+  | 'shanghai'
+  | 'tokyo'
+  | 'sidney'
+  | 'city'
+  | 'wild'
+  | 'sea'
+
+// export enum GenericLocations {
+//   city = 'city',
+//   wild = 'wild',
+//   sea = 'sea',
+// }
+// export interface Locations {
+//   locations: CityLocations | GenericLocations
+// }

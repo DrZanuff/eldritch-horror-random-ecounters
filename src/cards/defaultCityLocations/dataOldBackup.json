@@ -2,6 +2,7 @@
   "author": "DrZanuff",
   "version": 0.1,
   "languages": ["pt-br", "en-us"],
+  "type": "CityLocations",
   "dependencies": [],
   "cards": [
     {
@@ -51,12 +52,32 @@
         ]
       },
       "content": {
-        "_intro": {
+        "intro": {
           "languageOptions": {
-            "pt-br": "Você está a caminho %/smallScope/%.$/[Um telegrama | Um bilhete com letras estranhas| Uma carta com letras de sangue]/$ que você recebeu sem remetente lhe informou para se encontrar neste local. Na mensagem há um símbolo estranho desenhado na parte de trás.",
-            "en-us": "You are on your way %/smallScope/%.$/[A telegram | A note with strange letters | A letter with blood letters]/$ that you would go without a sender informed you to meet at this location. In the message there is a strange strange symbol on the back."
+            "pt-br": "Você está a caminho %/smallScope/%.$/[ message1 | message2 | message3 ]/$ que você recebeu sem remetente lhe informou para se encontrar neste local. Na mensagem há um símbolo estranho desenhado na parte de trás.",
+            "en-us": "You are on your way %/smallScope/%.$/[ message1 | message2 | message3 ]/$ that you would go without a sender informed you to meet at this location. In the message there is a strange strange symbol on the back."
           },
-          "nextStep": "$/_local/$"
+          "nextStep": "$/_local/$",
+          "localVariables": {
+            "message1": {
+              "languageOptions": {
+                "pt-br": "Um telegrama",
+                "en-us": "A telegram"
+              }
+            },
+            "message2": {
+              "languageOptions": {
+                "pt-br": "Um bilhete com letras estranhas",
+                "en-us": "A note with strange letters"
+              }
+            },
+            "message3": {
+              "languageOptions": {
+                "pt-br": "Uma carta com letras de sangue",
+                "en-us": "A letter with blood letters"
+              }
+            }
+          }
         },
 
         "sanFran": {
@@ -148,20 +169,98 @@
 
         "fate1": {
           "languageOptions": {
-            "pt-br": "%/person.aPerson/% se aproxima, falando palavras estranhas que você não compreende. Você tenta compreender as palavras sem sentido $/{icon:lore}/$ \n\n $/[&/failure1/& | &/failure2/& | &/failure3/&]/$",
-            "en-us": "%/person.aPerson/% approaches, speaking strange words you don't understand. You try to understand the nonsense words $/{icon:lore}/$ \n\n $/succses/$ \n\n $/[&/failure1/& | &/failure2/& | &/failure3/&]/$"
+            "pt-br": "%/person.aPerson/% se aproxima, falando palavras estranhas que você não compreende. Você tenta compreender as palavras sem sentido $/{icon:lore}/$ \n\n $/succses/$ \n\n $/[ failure1 | failure2 | failure3 ]/$",
+            "en-us": "%/person.aPerson/% approaches, speaking strange words you don't understand. You try to understand the nonsense words $/{icon:lore}/$ \n\n $/succses/$ \n\n $/[ failure1 | failure2 | failure3 ]/$"
           },
           "localVariables": {
             "succses": {
               "languageOptions": {
-                "pt-br": "Se passar você compreende essas palavras $/[ de um sonho que você teve | de um tomo antigo que você leu ]/$ e tudo começa a se conectar. $/[ Receba uma pista|  Aprimore uma proficiência da sua escolha| Ganhe um feitiço]/$.",
-                "en-us": "If you pass you understand these words $/[ of a dream you had | from an old tome you read ]/$ and everything starts to connect. $/[ Receive a clue| Improve a skill of your choice| Win a spell]/$."
+                "pt-br": "Se passar você compreende essas palavras $/[ omen1 | omen2 ]/$ e tudo começa a se conectar. $/[ reward1 |  reward2 | reward ]/$.",
+                "en-us": "If you pass you understand these words $/[ omen1 | omen2 ]/$ and everything starts to connect. $/[ reward1 | reward2 | reward3 ]/$."
+              }
+            },
+            "omen1": {
+              "languageOptions": {
+                "pt-br": "de um sonho que você teve",
+                "en-us": "of a dream you had"
+              }
+            },
+            "omen2": {
+              "languageOptions": {
+                "pt-br": "de um tomo antigo que você leu ",
+                "en-us": "from an old tome you read"
+              }
+            },
+            "reward1": {
+              "languageOptions": {
+                "pt-br": "Receba uma pista",
+                "en-us": "Receive a clue"
+              }
+            },
+            "reward2": {
+              "languageOptions": {
+                "pt-br": "Aprimore uma proficiência da sua escolha",
+                "en-us": "Improve a skill of your choice"
+              }
+            },
+            "reward3": {
+              "languageOptions": {
+                "pt-br": "Ganhe um feitiço",
+                "en-us": "Win a spell"
               }
             },
             "failure1": {
               "languageOptions": {
-                "pt-br": "Se falhar %/person.thePerson/% te ataca com $/[ uma adaga ritualística |  uma espada mágica | um feitiço profano]/$.$/[Perca 1 vida| Receba uma condição de lesão| Remova um aprimoramento]/$",
-                "en-us": "If you fail %/person.thePerson/% attacks you with $/[ a ritualistic dagger | a magic sword | an unholy spell]/$.$/[Lose 1 life| Receive an Injury Condition| Remove an enhancement]/$"
+                "pt-br": "Se falhar %/person.thePerson/% te ataca com $/[ weapon1 |  weapon2 | weapon3 ]/$.$/[ consequence1 | consequence2 | consequence3 ]/$",
+                "en-us": "If you fail %/person.thePerson/% attacks you with $/[ weapon1 |  weapon2 | weapon3 ]/$.$/[ consequence1 | consequence2 | consequence3 ]/$"
+              }
+            },
+            "weapon1": {
+              "languageOptions": {
+                "pt-br": "uma adaga ritualística",
+                "en-us": "a ritualistic dagger"
+              }
+            },
+            "weapon2": {
+              "languageOptions": {
+                "pt-br": "uma espada mágica",
+                "en-us": "a magic sword"
+              }
+            },
+            "weapon3": {
+              "languageOptions": {
+                "pt-br": "um feitiço profano",
+                "en-us": "an unholy spell"
+              }
+            },
+            "consequence1": {
+              "languageOptions": {
+                "pt-br": "Perca 1 vida",
+                "en-us": "Lose 1 life"
+              }
+            },
+            "consequence2": {
+              "languageOptions": {
+                "pt-br": "Receba uma condição de lesão",
+                "en-us": "Receive an Injury Condition"
+              }
+            },
+            "consequence3": {
+              "languageOptions": {
+                "pt-br": "Remova um aprimoramento",
+                "en-us": "Remove an improvement"
+              }
+            },
+            "consequence4": {
+              "languageOptions": {
+                "pt-br": "perca 1 de sanidade",
+                "en-us": "lose 1 sanity"
+              }
+            },
+            "consequence5": {
+              "languageOptions": {
+                "pt-br": "avance a Perdição em 1",
+                "en-us": "advance Doom by 1"
               }
             },
             "failure2": {
@@ -172,8 +271,8 @@
             },
             "failure3": {
               "languageOptions": {
-                "pt-br": "Se falhar, estas palavras prenunciam algo muito ruim que está para acontecer, $/[perca 1 de sanidade |avance a Perdição em 1]/$.",
-                "en-us": "If you fail, these words portend something very bad is about to happen, $/[lose 1 sanity |advance Doom by 1]/$."
+                "pt-br": "Se falhar, estas palavras prenunciam algo muito ruim que está para acontecer, $/[ consequence4 | consequence5 ]/$.",
+                "en-us": "If you fail, these words portend something very bad is about to happen, $/[ consequence4 | consequence45]/$."
               }
             }
           }
@@ -181,8 +280,46 @@
 
         "fate2": {
           "languageOptions": {
-            "pt-br": "Uma voz chama seu nome atrás de você. %/person.aPerson/% que você não percebeu estava lá o tempo todo.$/[ A pessoa te fala de acontecimentos futuros improváveis. Receba uma pista| Um ser ancestral fala através da voz da pessoa, lhe oferecendo auxilio na sua missão em troca da sua alma. Se aceitar receba uma pacto obscuro e avance o mistério ativo| '<i>&/[ A Organização| A Ordem| O Conselho]/& decidiu auxiliá-lo na sua missão. Isto custou muitas vidas para chegar na suas mãos'.</i> Receba um artefato]/&",
-            "en-us": "A voice calls your name behind you. %/person.aPerson/% that you didn't notice was there all along.$/[ The person tells you of unlikely future events. Get a clue| An ancestral being speaks through the person's voice, offering you assistance in your mission in exchange for your soul. If you accept, receive an obscure pact and advance the active mystery| '<i>&/[ The Organization| The Order| The Council]/& has decided to assist you in your mission. It took many lives to get this on your hands'.</i> Receive an artifact]/&"
+            "pt-br": "Uma voz chama seu nome atrás de você. %/person.aPerson/% que você não percebeu estava lá o tempo todo.$/[ outcome1 , outcome2 , outcome3 ]/&",
+            "en-us": "A voice calls your name behind you. %/person.aPerson/% that you didn't notice was there all along.$/[ outcome1 , outcome2 , outcome3 ]/&"
+          },
+          "localVariables": {
+            "outcome1": {
+              "languageOptions": {
+                "pt-br": "A pessoa te fala de acontecimentos futuros improváveis. Receba uma pista.",
+                "en-us": "The person tells you of unlikely future events. Get a clue."
+              }
+            },
+            "outcome2": {
+              "languageOptions": {
+                "pt-br": "Um ser ancestral fala através da voz da pessoa, lhe oferecendo auxilio na sua missão em troca da sua alma. Se aceitar receba uma pacto obscuro e avance o mistério ativo.",
+                "en-us": "An ancestral being speaks through the person's voice, offering you assistance in your mission in exchange for your soul. If you accept, receive an obscure pact and advance the active mystery."
+              }
+            },
+            "outcome3": {
+              "languageOptions": {
+                "pt-br": "'<i>&/[ entity1 | entity2 | entity3 ]/& decidiu auxiliá-lo na sua missão. Isto custou muitas vidas para chegar na suas mãos'.</i> Receba um artefato",
+                "en-us": "'<i>&/[ entity1 | entity2 | entity3 ]/& has decided to assist you in your mission. It took many lives to get this on your hands'.</i> Receive an artifact"
+              }
+            },
+            "entity1": {
+              "languageOptions": {
+                "pt-br": "A Organização",
+                "en-us": "The Organization"
+              }
+            },
+            "entity2": {
+              "languageOptions": {
+                "pt-br": "A Ordem",
+                "en-us": "The Order"
+              }
+            },
+            "entity3": {
+              "languageOptions": {
+                "pt-br": "O Conselho",
+                "en-us": "The Council"
+              }
+            }
           }
         },
 
@@ -230,8 +367,22 @@
 
         "go": {
           "languageOptions": {
-            "pt-br": "Você acompanha %/person.thePerson/% para um lugar longe dos barulhos. Você recebe $/[alguns documentos| um livro velho ]/$. <i>'Isso irá ajudar na sua missão. Faça bom uso. Estaremos te observando…'</i>. Receba 2 pistas.",
-            "en-us": "You follow %/person.thePerson/% to a place away from the noise. You receive $/[some documents| an old book ]/$. <i>'This will help in your mission. Make good use of it. We'll be watching…'</i>. Receive 2 clues."
+            "pt-br": "Você acompanha %/person.thePerson/% para um lugar longe dos barulhos. Você recebe $/[ document1 | document2 ]/$. <i>'Isso irá ajudar na sua missão. Faça bom uso. Estaremos te observando…'</i>. Receba 2 pistas.",
+            "en-us": "You follow %/person.thePerson/% to a place away from the noise. You receive $/[ document1 | document2 ]/$. <i>'This will help in your mission. Make good use of it. We'll be watching…'</i>. Receive 2 clues."
+          },
+          "localVariables": {
+            "document1": {
+              "languageOptions": {
+                "pt-br": "alguns documentos",
+                "en-us": "some documents"
+              }
+            },
+            "document2": {
+              "languageOptions": {
+                "pt-br": "um livro velho ",
+                "en-us": "an old book "
+              }
+            }
           }
         },
 
@@ -289,8 +440,20 @@
           "localVariables": {
             "success": {
               "languageOptions": {
-                "pt-br": "<b>Se tiver sucesso:</b> $/[As runas estão ligadas com o grande mal que ameaça a humanidade| O mesmo símbolo na sua mensagem está nas paredes]/$ e isso confirma algumas suspeitas que você tinha. Receba uma pista.",
-                "en-us": "<b>If successful:</b> $/[The runes are linked with the great evil that threatens humanity| The same symbol in your message is on the walls]/$ and this confirms some suspicions you had. Get a clue."
+                "pt-br": "<b>Se tiver sucesso:</b> $/[ symbols1 | symbols2 ]/$ e isso confirma algumas suspeitas que você tinha. Receba uma pista.",
+                "en-us": "<b>If successful:</b> $/[ symbols1 | symbols2 ]/$ and this confirms some suspicions you had. Get a clue."
+              }
+            },
+            "symbols1": {
+              "languageOptions": {
+                "pt-br": "As runas estão ligadas com o grande mal que ameaça a humanidade",
+                "en-us": "The runes are linked with the great evil that threatens humanity"
+              }
+            },
+            "symbols2": {
+              "languageOptions": {
+                "pt-br": "O mesmo símbolo na sua mensagem está nas paredes",
+                "en-us": "The same symbol in your message is on the walls"
               }
             }
           }

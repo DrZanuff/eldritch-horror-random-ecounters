@@ -1,14 +1,27 @@
 import { useCallback } from 'react'
-import { CardData, DeckData } from '../../types/DeckType'
+import { CardData, DeckData, Locations } from '../../types/DeckType'
 
 interface CardProps {
-  data: DeckData
+  currentDeck: DeckData
   currentCard: number
+  currentLocation: Locations
 }
 
-export function CardDisplay({ data }: CardProps) {
+export function CardDisplay({
+  currentDeck,
+  currentCard,
+  currentLocation,
+}: CardProps) {
   const lang = 'pt-br'
 
+  console.log(
+    'CURRENT DECK',
+    currentDeck,
+    'CURRENT CARD',
+    currentCard,
+    'CURRENT LOCATION',
+    currentLocation
+  )
   enum Status {
     Start,
     Search,
@@ -16,58 +29,81 @@ export function CardDisplay({ data }: CardProps) {
     Stop,
   }
 
-  // Criar uma função com While que: percorre o objeto começando pelo _intro
-  // até não encontrar mais a prop nextPart. A cada ponto, gerar o texto formatado
-  // e colocar em uma array indexada para ser renderizado pelo react. Quando o nextPart
-  // for uma array, deve parar o loop e renderizar os botões com as opções. Ao clicar no botão
-  // se passa a referência de onde parou o loop e continar renderizando pelo nextPart selecionado
-  const generateCard = useCallback((card: CardData, language: string) => {
-    const searchStatus = Status.Start
-    const textArray = [] as Array<string>
+  const generateCard = useCallback(
+    (card: CardData, language: string, location: Locations) => {
+      const searchStatus = Status.Start
+      const textArray = [] as Array<string>
 
-    // while (searchStatus === Status.Start || searchStatus === Status.Search) {
-    //   if (searchStatus === Status.Start) {
-    //     if (typeof card.content._intro === 'string') {
-    //       const text = card.content._intro
-    //       textArray.push(text)
-    //     } else {
-    //       if (typeof card.content._intro[language] === 'string') {
-    //         const text = card.content._intro[language] as string
-    //         textArray.push(text)
-    //       } else {
-    //         const size = card.content._intro[language]?.length
-    //         if (typeof size === 'number') {
-    //           const text =
-    //             card.content._intro[language]?.[
-    //               Math.floor(Math.random() * size)
-    //             ]
-    //           text && textArray.push(text)
-    //         }
-    //       }
-    //     }
-    //   }
-    // }
+      console.log(card, language, location)
+
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+      getVariables(card.content.intro.languageOptions![language])
+    },
     // eslint-disable-next-line react-hooks/exhaustive-deps
+    []
+  )
+
+  const getVariables = useCallback((text: string) => {
+    //Global Variables
+    const regexGlobal = /\$(.*?)\/\$/g
+    const globalsArray = [...text.matchAll(regexGlobal)].map((result) => {
+      return result[1]
+    })
+
+    //Local Variables
+    const regexLocal = /\[(.*?)\]/g
+    const localArray = [...text.matchAll(regexLocal)].map((result) => {
+      const array = result[1].split('|').map((element) => element.trim())
+
+      return shuffle(array)
+    })
+
+    localArray.forEach((variables) => {
+      const text =
+        currentDeck.cards[currentCard].content.intro.localVariables[
+          variables[0]
+        ].languageOptions[lang]
+      // ?.[
+      //   variables[0]
+      // ][lang]
+
+      console.log(text, variables, lang)
+    })
+
+    console.log('ARRAY', localArray)
   }, [])
 
-  console.log('DATA INSIDE', data)
+  // function shuffle(array: Array<string>) {
+  //   return array
+  //     .map((value) => ({ value, sort: Math.random() }))
+  //     .sort((a, b) => a.sort - b.sort)
+  //     .map(({ value }) => value)
+  // }
+
+  function shuffle(a: Array<string>) {
+    for (let j, i = a.length - 1; i > 0; i--) {
+      j = Math.floor(Math.random() * (i + 1))
+      ;[a[i], a[j]] = [a[j], a[i]]
+    }
+
+    return a
+  }
 
   return (
     <>
-      {data.cards?.[0] && (
+      {currentDeck.cards?.[currentCard] && (
         <>
-          <h2>{data.author}</h2>
-          <h3>{data.cards[0].name[lang]}</h3>
-          <h4>{data.cards[0].content._intro[lang]}</h4>
-          <h5>{data.cards[0].content._intro.nextPart}</h5>
-          <h6>
+          <h2>{currentDeck.author}</h2>
+          <h3>{currentDeck.cards[currentCard].name[lang]}</h3>
+          <h4>
             {
-              data.cards[0].content[
-                data.cards[0].content._intro.nextPart as string
-              ].anyLanguage
+              currentDeck.cards[currentCard].content.intro.localVariables?.[
+                lang
+              ]
             }
-          </h6>
-          {generateCard(data.cards[0], lang)}
+          </h4>
+          <h5>{currentDeck.cards[currentCard].content.intro.nextStep}</h5>
+          {generateCard(currentDeck.cards[currentCard], lang, currentLocation)}
         </>
       )}
     </>
