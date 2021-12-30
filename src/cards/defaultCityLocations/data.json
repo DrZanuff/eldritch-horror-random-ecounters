@@ -18,40 +18,14 @@
               "pt-br": ["da Praia Baker"],
               "en-us": ["Baker Beach"]
             }
-          }
-        },
-        "person": [
-          {
-            "aPerson": {
-              "pt-bt": "Uma figura encapuzada",
-              "en-us": "A hooded figure"
-            },
-            "thePerson": {
-              "pt-br": "A figura encapuzada",
-              "en-us": "The hooded figure"
-            }
           },
-          {
-            "aPerson": {
-              "pt-bt": "Um homen com olhos estranhos",
-              "en-us": "a man with strange eyes"
-            },
-            "thePerson": {
-              "pt-br": "O homen com olhos estranhos",
-              "en-us": "The man with strange eyes"
-            }
-          },
-          {
-            "aPerson": {
-              "pt-bt": "Uma senhora com trapos velhos",
-              "en-us": "A lady with old rags"
-            },
-            "thePerson": {
-              "pt-br": "A senhora com trapos velhos",
-              "en-us": "The lady with old rags"
+          "london": {
+            "languageOptions": {
+              "pt-br": ["de Bibury", "de Wiltshire"],
+              "en-us": ["Bibury", "Wiltshire"]
             }
           }
-        ]
+        }
       },
       "content": {
         "intro": {
@@ -171,10 +145,28 @@
 
         "fate1": {
           "languageOptions": {
-            "pt-br": "$person.aPerson/$ se aproxima, falando palavras estranhas que você não compreende. Você tenta compreender as palavras sem sentido {icon:lore} \n\n succses \n\n [ failure1 | failure2 | failure3 ]",
-            "en-us": "$person.aPerson/$ approaches, speaking strange words you don't understand. You try to understand the nonsense words {icon:lore} \n\n succses \n\n [ failure1 | failure2 | failure3 ]"
+            "pt-br": "[ hood | man | rag ] se aproxima, falando palavras estranhas que você não compreende. Você tenta compreender as palavras sem sentido {icon:lore} \n\n succses \n\n [ failure1 | failure2 | failure3 ]",
+            "en-us": "[ hood | man | rag ] approaches, speaking strange words you don't understand. You try to understand the nonsense words {icon:lore} \n\n succses \n\n [ failure1 | failure2 | failure3 ]"
           },
           "localVariables": {
+            "hood": {
+              "languageOptions": {
+                "pt-bt": "Uma figura encapuzada",
+                "en-us": "A hooded figure"
+              }
+            },
+            "man": {
+              "languageOptions": {
+                "pt-bt": "Um homen com olhos estranhos",
+                "en-us": "a man with strange eyes"
+              }
+            },
+            "rag": {
+              "languageOptions": {
+                "pt-bt": "Uma senhora com trapos velhos",
+                "en-us": "A lady with old rags"
+              }
+            },
             "succses": {
               "languageOptions": {
                 "pt-br": "Se passar você compreende essas palavras [ omen1 | omen2 ] e tudo começa a se conectar. [ reward1 |  reward2 | reward ].",
@@ -213,8 +205,8 @@
             },
             "failure1": {
               "languageOptions": {
-                "pt-br": "Se falhar $person.thePerson/$ te ataca com [ weapon1 |  weapon2 | weapon3 ].[ consequence1 | consequence2 | consequence3 ]",
-                "en-us": "If you fail $person.thePerson/$ attacks you with [ weapon1 |  weapon2 | weapon3 ].[ consequence1 | consequence2 | consequence3 ]"
+                "pt-br": "Se falhar, seu agressor te ataca com [ weapon1 |  weapon2 | weapon3 ].[ consequence1 | consequence2 | consequence3 ]",
+                "en-us": "If you fail, your aggressor attacks you with [ weapon1 |  weapon2 | weapon3 ].[ consequence1 | consequence2 | consequence3 ]"
               }
             },
             "weapon1": {
@@ -282,10 +274,28 @@
 
         "fate2": {
           "languageOptions": {
-            "pt-br": "Uma voz chama seu nome atrás de você. $person.aPerson/$ que você não percebeu estava lá o tempo todo.[ outcome1 , outcome2 , outcome3 ]/&",
-            "en-us": "A voice calls your name behind you. $person.aPerson/$ that you didn't notice was there all along.[ outcome1 , outcome2 , outcome3 ]/&"
+            "pt-br": "Uma voz chama seu nome atrás de você. [ hood | man | rag ] que você não percebeu estava lá o tempo todo.[ outcome1 , outcome2 , outcome3 ]/&",
+            "en-us": "A voice calls your name behind you. [ hood | man | rag ] that you didn't notice was there all along.[ outcome1 , outcome2 , outcome3 ]/&"
           },
           "localVariables": {
+            "hood": {
+              "languageOptions": {
+                "pt-bt": "Uma figura encapuzada",
+                "en-us": "A hooded figure"
+              }
+            },
+            "man": {
+              "languageOptions": {
+                "pt-bt": "Um homen com olhos estranhos",
+                "en-us": "a man with strange eyes"
+              }
+            },
+            "rag": {
+              "languageOptions": {
+                "pt-bt": "Uma senhora com trapos velhos",
+                "en-us": "A lady with old rags"
+              }
+            },
             "outcome1": {
               "languageOptions": {
                 "pt-br": "A pessoa te fala de acontecimentos futuros improváveis. Receba uma pista.",
@@ -369,8 +379,8 @@
 
         "go": {
           "languageOptions": {
-            "pt-br": "Você acompanha $person.thePerson/$ para um lugar longe dos barulhos. Você recebe [ document1 | document2 ]. <i>'Isso irá ajudar na sua missão. Faça bom uso. Estaremos te observando…'</i>. Receba 2 pistas.",
-            "en-us": "You follow $person.thePerson/$ to a place away from the noise. You receive [ document1 | document2 ]. <i>'This will help in your mission. Make good use of it. We'll be watching…'</i>. Receive 2 clues."
+            "pt-br": "Você segue para um lugar longe dos barulhos. Você recebe [ document1 | document2 ]. <i>'Isso irá ajudar na sua missão. Faça bom uso. Estaremos te observando…'</i>. Receba 2 pistas.",
+            "en-us": "You follow to a place away from the noise. You receive [ document1 | document2 ]. <i>'This will help in your mission. Make good use of it. We'll be watching…'</i>. Receive 2 clues."
           },
           "localVariables": {
             "document1": {

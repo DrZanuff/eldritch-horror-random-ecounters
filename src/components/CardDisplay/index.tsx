@@ -1,5 +1,10 @@
 import { useCallback } from 'react'
-import { CardData, DeckData, Locations } from '../../types/DeckType'
+import {
+  CardData,
+  DeckData,
+  Locations,
+  GlobalVariables,
+} from '../../types/DeckType'
 
 interface CardProps {
   currentDeck: DeckData
@@ -30,55 +35,77 @@ export function CardDisplay({
   }
 
   const generateCard = useCallback(
-    (card: CardData, language: string, location: Locations) => {
+    (
+      card: CardData,
+      language: string,
+      location: Locations,
+      globals: GlobalVariables
+    ) => {
       const searchStatus = Status.Start
       const textArray = [] as Array<string>
 
       console.log(card, language, location)
 
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-      getVariables(card.content.intro.languageOptions![language])
+      nextStep(
+        card.content.intro.languageOptions![language],
+        globals,
+        location,
+        language
+      )
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
     []
   )
 
-  const getVariables = useCallback((text: string) => {
-    //Global Variables
-    const regexGlobal = /\$(.*?)\/\$/g
-    const globalsArray = [...text.matchAll(regexGlobal)].map((result) => {
-      return result[1]
-    })
+  const nextStep = useCallback(
+    (
+      text: string,
+      globals: GlobalVariables,
+      location: string,
+      language: string
+    ) => {
+      //Global Variables
+      const regexGlobal = /\$(.*?)\/\$/g
+      const globalsArray = [...text.matchAll(regexGlobal)].map((result) => {
+        return result[1]
+      })
 
-    //Local Variables
-    const regexLocal = /\[(.*?)\]/g
-    const localArray = [...text.matchAll(regexLocal)].map((result) => {
-      const array = result[1].split('|').map((element) => element.trim())
+      if (globalsArray.length > 0) {
+        console.log('Arrays de Globals', globalsArray[0])
+        console.log('Globals', globals)
+        // console.log(globals[0][location].languageOptions[lang])
+        console.log(
+          'Globals Smallscrope ',
+          globals[globalsArray[0]]?[location].languageOptions[language]
+        )
+        console.log('_______________________________')
+      }
 
-      return shuffle(array)
-    })
+      //Local Variables
+      const regexLocal = /\[(.*?)\]/g
+      const localArray = [...text.matchAll(regexLocal)].map((result) => {
+        const array = result[1].split('|').map((element) => element.trim())
 
-    localArray.forEach((variables) => {
-      const text =
-        currentDeck.cards[currentCard].content.intro.localVariables[
-          variables[0]
-        ].languageOptions[lang]
-      // ?.[
-      //   variables[0]
-      // ][lang]
+        return shuffle(array)
+      })
 
-      console.log(text, variables, lang)
-    })
+      console.log('GLOBALS', globalsArray, 'LOCAL', localArray)
 
-    console.log('ARRAY', localArray)
-  }, [])
+      // localArray.forEach((variables) => {
+      //   const text =
+      //     currentDeck.cards?.[currentCard].content.intro.localVariables[
+      //       variables[0][0]
+      //     ]?.languageOptions[lang]
+      //   // ?.[
+      //   //   variables[0]
+      //   // ][lang]
 
-  // function shuffle(array: Array<string>) {
-  //   return array
-  //     .map((value) => ({ value, sort: Math.random() }))
-  //     .sort((a, b) => a.sort - b.sort)
-  //     .map(({ value }) => value)
-  // }
+      //   console.log(text, variables, lang)
+      // })
+    },
+    []
+  )
 
   function shuffle(a: Array<string>) {
     for (let j, i = a.length - 1; i > 0; i--) {
@@ -103,7 +130,12 @@ export function CardDisplay({
             }
           </h4>
           <h5>{currentDeck.cards[currentCard].content.intro.nextStep}</h5>
-          {generateCard(currentDeck.cards[currentCard], lang, currentLocation)}
+          {generateCard(
+            currentDeck.cards[currentCard],
+            lang,
+            currentLocation,
+            currentDeck.cards[currentCard].variables
+          )}
         </>
       )}
     </>

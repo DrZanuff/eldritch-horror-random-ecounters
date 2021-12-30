@@ -6,6 +6,10 @@ interface LocalVariable {
   [key: string]: LanguageOptions
 }
 
+export interface GlobalVariables {
+  [key: string]: LocalVariable | undefined
+}
+
 interface ChoiceStep {
   languageOptions: LanguageOptions
   option: string
@@ -23,7 +27,7 @@ export interface CardData {
   id: number
   name: Record<string, string>
   content: Record<string, ItemData>
-  variables: unknown
+  variables: GlobalVariables
 }
 
 export interface DeckData {
@@ -63,12 +67,3 @@ export type Locations =
   | 'city'
   | 'wild'
   | 'sea'
-
-// export enum GenericLocations {
-//   city = 'city',
-//   wild = 'wild',
-//   sea = 'sea',
-// }
-// export interface Locations {
-//   locations: CityLocations | GenericLocations
-// }
