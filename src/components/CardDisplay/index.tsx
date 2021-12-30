@@ -77,7 +77,7 @@ export function CardDisplay({
         // console.log(globals[0][location].languageOptions[lang])
         console.log(
           'Globals Smallscrope ',
-          globals[globalsArray[0]]?[location].languageOptions[language]
+          globals[globalsArray[0]]?.[location].languageOptions[language]
         )
         console.log('_______________________________')
       }
