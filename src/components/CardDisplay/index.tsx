@@ -148,7 +148,9 @@ export function CardDisplay({
             currentLocation,
             currentDeck.cards[currentCard].variables
           )}
-          <div dangerouslySetInnerHTML={{ __html: superEval() }}></div>
+          <div
+            dangerouslySetInnerHTML={{ __html: superEval('pt-br', 'rome') }}
+          ></div>
         </>
       )}
     </>

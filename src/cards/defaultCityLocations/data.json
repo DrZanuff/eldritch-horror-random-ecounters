@@ -30,8 +30,8 @@
       "content": {
         "intro": {
           "languageOptions": {
-            "pt-br": "Você está a caminho $smallScope/$.[ message1 | message2 | message3 ] que você recebeu sem remetente lhe informou para se encontrar neste local. Na mensagem há um símbolo estranho desenhado na parte de trás.[ A | B | C ]",
-            "en-us": "You are on your way $smallScope/$.[ message1 | message2 | message3 ] that you would go without a sender informed you to meet at this location. In the message there is a strange strange symbol on the back.[ A | B | C ]"
+            "pt-br": "Você está a caminho $smallScope/$.[ message1 | message2 | message3 ] que você recebeu sem remetente lhe informou para se encontrar neste local. Na mensagem há um símbolo estranho desenhado na parte de trás.",
+            "en-us": "You are on your way $smallScope/$.[ message1 | message2 | message3 ] that you would go without a sender informed you to meet at this location. In the message there is a strange strange symbol on the back."
           },
           "nextStep": "_local",
           "localVariables": {
