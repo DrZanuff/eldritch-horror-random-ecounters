@@ -5,7 +5,7 @@ import {
   Locations,
   GlobalVariables,
 } from '../../types/DeckType'
-
+import { superEval } from '../myJs'
 interface CardProps {
   currentDeck: DeckData
   currentCard: number
@@ -48,11 +48,14 @@ export function CardDisplay({
 
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       nextStep(
+        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
         card.content.intro.languageOptions![language],
         globals,
         location,
         language
       )
+
+      console.log(superEval())
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
     []
@@ -71,6 +74,8 @@ export function CardDisplay({
         return result[1]
       })
 
+      const resultingText = ''
+
       if (globalsArray.length > 0) {
         console.log('Arrays de Globals', globalsArray[0])
         console.log('Globals', globals)
@@ -86,6 +91,13 @@ export function CardDisplay({
       const regexLocal = /\[(.*?)\]/g
       const localArray = [...text.matchAll(regexLocal)].map((result) => {
         const array = result[1].split('|').map((element) => element.trim())
+
+        console.log(
+          text
+            .replace(result[1], array[0])
+            .replaceAll(/\[/g, '')
+            .replaceAll(/\]/g, '')
+        )
 
         return shuffle(array)
       })
@@ -136,6 +148,7 @@ export function CardDisplay({
             currentLocation,
             currentDeck.cards[currentCard].variables
           )}
+          <div dangerouslySetInnerHTML={{ __html: superEval() }}></div>
         </>
       )}
     </>
