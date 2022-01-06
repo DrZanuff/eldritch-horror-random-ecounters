@@ -159,10 +159,119 @@ export function superEval(lang = 'en-us', local = 'sanFran') {
 
     append(options[lang])
 
-    shuffle([fate1, fate2, fate3])()
+    shuffle([fate1])()
   }
 
-  function fate1() {}
+  function fate1() {
+    const person = shuffle([
+      {
+        'pt-br': 'Uma figura encapuzada',
+        'en-us': 'A hooded figure',
+      },
+      {
+        'pt-br': 'Um homen com olhos estranhos',
+        'en-us': 'a man with strange eyes',
+      },
+      {
+        'pt-br': 'Uma senhora com trapos velhos',
+        'en-us': 'A lady with old rags',
+      },
+    ])
+
+    const omen = shuffle([
+      {
+        'pt-br': 'de um sonho que você teve',
+        'en-us': 'of a dream you had',
+      },
+      {
+        'pt-br': 'de um tomo antigo que você leu ',
+        'en-us': 'from an old tome you read ',
+      },
+    ])
+
+    const reward = shuffle([
+      {
+        'pt-br': 'Receba uma pista',
+        'en-us': 'Receive a clue',
+      },
+      {
+        'pt-br': 'Aprimore uma proficiência da sua escolha',
+        'en-us': 'Improve a skill of your choice',
+      },
+      {
+        'pt-br': 'Ganhe um feitiço',
+        'en-us': 'Win a spell',
+      },
+    ])
+
+    const succses = {
+      'pt-br': `Se passar você compreende essas palavras ${omen[lang]} e tudo começa a se conectar. ${reward[lang]}.`,
+      'en-us': `If you pass you understand these words ${omen[lang]} and everything starts to connect. ${reward[lang]}.`,
+    }
+
+    const consequence1 = shuffle([
+      {
+        'pt-br': 'Perca 1 vida',
+        'en-us': 'Lose 1 life',
+      },
+      {
+        'pt-br': 'Receba uma condição de lesão',
+        'en-us': 'Receive an Injury Condition',
+      },
+      {
+        'pt-br': 'Remova um aprimoramento',
+        'en-us': 'Remove an improvement',
+      },
+    ])
+
+    const consequence2 = shuffle([
+      {
+        'pt-br': 'perca 1 de sanidade',
+        'en-us': 'lose 1 sanity',
+      },
+      {
+        'pt-br': 'avance a Perdição em 1',
+        'en-us': 'advance Doom by 1',
+      },
+    ])
+
+    const weapon = shuffle([
+      {
+        'pt-br': 'uma adaga ritualística',
+        'en-us': 'a ritualistic dagger',
+      },
+      {
+        'pt-br': 'uma espada mágica',
+        'en-us': 'a magic sword',
+      },
+      {
+        'pt-br': 'um feitiço profano',
+        'en-us': 'an unholy spell',
+      },
+    ])
+
+    const failure = shuffle([
+      {
+        'pt-br': `Se falhar, seu agressor te ataca com ${weapon[lang]}.${consequence1[lang]}`,
+        'en-us': `If you fail, your aggressor attacks you with ${weapon[lang]}.${consequence1[lang]}`,
+      },
+      {
+        'pt-br': '',
+        'en-us': '',
+      },
+      {
+        'pt-br': `Se falhar, estas palavras prenunciam algo muito ruim que está para acontecer, ${consequence2[lang]}.`,
+        'en-us': `If you fail, these words portend something very bad is about to happen, ${consequence2[lang]}.`,
+      },
+    ])
+
+    const options = {
+      'pt-br': `${person[lang]} se aproxima, falando palavras estranhas que você não compreende. Você tenta compreender as palavras sem sentido <span class="icon observation" /> \n\n ${succses[lang]} \n\n ${failure[lang]}`,
+      'en-us': `${person[lang]} approaches, speaking strange words you don\`t understand. You try to understand the nonsense words <span class="icon observation" /> \n\n ${succses[lang]} \n\n ${failure[lang]}`,
+    }
+
+    append(options[lang])
+  }
 
   function fate2() {}
 
