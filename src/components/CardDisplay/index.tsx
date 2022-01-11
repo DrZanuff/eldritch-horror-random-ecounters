@@ -5,7 +5,8 @@ import {
   Locations,
   GlobalVariables,
 } from '../../types/DeckType'
-import { superEval } from '../myJs'
+// import { superEval } from '../myJs'
+import { superEval } from '../sample'
 interface CardProps {
   currentDeck: DeckData
   currentCard: number

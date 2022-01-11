@@ -159,7 +159,7 @@ export function superEval(lang = 'en-us', local = 'sanFran') {
 
     append(options[lang])
 
-    shuffle([fate1])()
+    shuffle([fate3])()
   }
 
   function fate1() {
@@ -273,9 +273,101 @@ export function superEval(lang = 'en-us', local = 'sanFran') {
     append(options[lang])
   }
 
-  function fate2() {}
+  function fate2() {
 
-  function fate3() {}
+    const person = shuffle([
+      {
+        'pt-br': 'Uma figura encapuzada',
+        'en-us': 'A hooded figure',
+      },
+      {
+        'pt-br': 'Um homen com olhos estranhos',
+        'en-us': 'a man with strange eyes',
+      },
+      {
+        'pt-br': 'Uma senhora com trapos velhos',
+        'en-us': 'A lady with old rags',
+      },
+    ])
+
+    const entity = shuffle([
+      {
+        'pt-br': 'A Organização',
+        'en-us': 'The Organization'
+      },
+      {                
+        'pt-br': 'A Ordem',
+        'en-us': 'The Order'
+      },
+      {                
+        'pt-br': 'O Conselho',
+        'en-us': 'The Council'
+      }
+    ])
+
+    const outcome = shuffle([
+      {
+        'pt-br': 'A pessoa te fala de acontecimentos futuros improváveis. Receba uma pista.',
+        'en-us': 'The person tells you of unlikely future events. Get a clue.'
+      },
+      {
+        'pt-br': 'Um ser ancestral fala através da voz da pessoa, lhe oferecendo auxilio na sua missão em troca da sua alma. Se aceitar receba uma pacto obscuro e avance o mistério ativo.',
+        'en-us': 'An ancestral being speaks through the person\'s voice, offering you assistance in your mission in exchange for your soul. If you accept, receive an obscure pact and advance the active mystery.'
+      },
+      {
+        'pt-br': `<i>${entity[lang]} decidiu auxiliá-lo na sua missão. Isto custou muitas vidas para chegar na suas mãos'.</i> Receba um artefato`,
+        'en-us': `'<i>${entity[lang]} has decided to assist you in your mission. It took many lives to get this on your hands'.</i> Receive an artifact`
+      }
+    ])
+
+    const options = {
+      'pt-br': `Uma voz chama seu nome atrás de você. ${person[lang]} que você não percebeu estava lá o tempo todo. ${outcome[lang]}`,
+      'en-us': `A voice calls your name behind you. ${person[lang]} that you didn't notice was there all along. ${outcome[lang]}`,
+    }
+
+    append(options[lang])
+  }
+
+  function fate3() {
+    
+    const choices = [
+      {
+        'pt-br' : 'Verificar',
+        'en-us' : 'Check'
+      },
+      {
+        'pt-br' : 'Esperar',
+        'en-us' : 'Wait'
+      }
+    ]
+    
+    function button(text) {
+      return (
+        /*html*/`
+          <button onClick="${() => wait()}">
+            ${text}
+          </button>
+        `
+      )
+    }
+
+    const options = {
+      'pt-br' : `Subitamente uma explosão abala uma construção próxima. Gritos de socorro ecoam e um incêndio parece se alastrar. Você pode ir verificar o que está acontecendo ou esperar no local marcado. ${button(choices[0][lang])} ${button(choices[1][lang])}`,
+      'en-us' : `Suddenly an explosion shakes a nearby building. Cries for help echo through the streets and a fire seems to spread. You can go check what\'s going on or wait at the appointed place. ${button(choices[0][lang])} ${button(choices[1][lang])}`
+    }
+
+    append(options[lang])
+  }
+
+  function wait() {
+
+    const options = {
+      'pt-br': "Você resolve ignorar os gritos de socorro. Uma figura encapuzada se aproxima furtivamente e fala com um sussurro <i>'Isso irá manter as autoridades ocupadas, agora venha comigo, rápido!'</i>",
+      'en-us': "You choose to ignore the cries for help. A hooded figure sneaks up and speaks in a whisper <i>'This will keep the authorities busy, now come with me, quick!'</i>"
+    }
+
+    append(options[lang])
+  }
 
   return text
 }
