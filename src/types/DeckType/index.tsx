@@ -1,58 +1,21 @@
-interface LanguageOptions {
-  [key: string]: string
-}
-
-interface LocalVariable {
-  [key: string]: LanguageOptions
-}
-
-export interface GlobalVariables {
-  [key: string]: LocalVariable | undefined
-}
-
-interface ChoiceStep {
-  languageOptions: LanguageOptions
-  option: string
-}
-
-export interface ItemData {
-  languageOptions: LanguageOptions | undefined
-  nextStep: string | undefined
-  randomStep: string[] | undefined
-  choiceStep: ChoiceStep[] | undefined
-  localVariables: LocalVariable | undefined
-}
-
-export interface CardData {
-  id: number
-  name: Record<string, string>
-  content: Record<string, ItemData>
-  variables: GlobalVariables
-}
-
-export interface DeckData {
+export interface DeckType {
   author: string
   version: number
+  name: VariableType
   languages: string[]
-  // type: 'CityLocations' | 'GenericLocations'
-  type: 'CityLocations' | 'GenericLocations'
-  cards: CardData[]
+  dependencies: string[]
+  cards: CardsType[]
 }
 
-export enum LocationsList {
-  sanFran = 'sanFran',
-  arkham = 'arkham',
-  buenosAires = 'buenosAires',
-  london = 'london',
-  rome = 'rome',
-  istambul = 'istambul',
-  shanghai = 'shanghai',
-  tokyo = 'tokyo',
-  sidney = 'sidney',
-  city = 'city',
-  wild = 'wild',
-  sea = 'sea',
+export interface CardsType {
+  id: number
+  name: VariableType
+  type: Locations[]
+  variables: Record<string, VariableType>
+  options: VariableType
 }
+
+export type VariableType = Record<string, string>
 
 export type Locations =
   | 'sanFran'
