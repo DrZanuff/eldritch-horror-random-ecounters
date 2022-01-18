@@ -4,14 +4,14 @@ export interface DeckType {
   name: VariableType
   languages: string[]
   dependencies: string[]
-  cards: CardsType[]
+  cards: CardType[]
 }
 
-export interface CardsType {
+export interface CardType {
   id: number
   name: VariableType
   type: Locations[]
-  variables: Record<string, VariableType>
+  variables: Record<string, VariableType[]>
   options: VariableType
 }
 

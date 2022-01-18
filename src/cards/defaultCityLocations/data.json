@@ -52,7 +52,7 @@
         ]
       },
       "options": {
-        "pt-br": "<p>Você acorda [place]. De repente o lugar que você se encontra começa a pegar fogo, porém o fogo é de uma cor esverdeada. VocÊ precisar achar uma saida o mais rápido possivel.<span class='icon observation' /> <br/></p><p>Se passar, [reward] <br/></p><p> Se falhar [fail]</p>",
+        "pt-br": "<p>Você acorda [place]. De repente o lugar que você se encontra começa a pegar fogo, porém o fogo é de uma cor esverdeada. Você precisar achar uma saida o mais rápido possivel.<span class='icon observation' /> <br/></p><p>Se passar, [reward] <br/></p><p> Se falhar [fail]</p>",
         "en-us": "<p>You wake up [place]. Suddenly the place you are in starts to catch fire, but the fire is a greenish color. You need to find a way out as quickly as possible.<span class='icon observation' /> <br/></p><p>If you pass, [reward] <br/></p><p>If you fail [fail]</p>"
       }
     }

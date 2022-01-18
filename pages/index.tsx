@@ -1,26 +1,12 @@
 import { useEffect, useState } from 'react'
 import { CardDisplay } from '../src/components/CardDisplay'
-import { DeckData, LocationsList, Locations } from '../src/types/DeckType'
-
-// interface CardData {
-//   id: number
-//   name: Record<string, unknown>
-//   content: Record<string, unknown>
-// }
-
-// interface DeckData {
-//   author: string
-//   version: number
-//   languages: string[]
-//   cards: CardData[]
-// }
+import { DeckType, Locations } from '../src/types/DeckType'
 
 export default function Main() {
   const [dataIsReady, setDataIsReady] = useState(false)
-  const [currentCard, setCurrentCard] = useState<DeckData>({} as DeckData)
-  // const [ currentDeck , setCurrentDeck ] = useState({})
+  const [currentCard, setCurrentCard] = useState<DeckType>({} as DeckType)
 
-  const currentLocation: Locations = LocationsList.london
+  const currentLocation: Locations = 'city'
 
   useEffect(() => {
     async function getData() {
