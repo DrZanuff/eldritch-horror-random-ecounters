@@ -3,6 +3,10 @@ import styled from 'styled-components'
 const SelectorContainer = styled.div`
   display: flex;
   width: 100px;
+
+  select {
+    width: 100%;
+  }
 `
 
 export function LangaugeSelector() {

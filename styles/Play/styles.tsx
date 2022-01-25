@@ -10,7 +10,7 @@ export const Body = styled.div`
 export const Content = styled.div`
   width: 100%;
   max-width: 600px;
-  height: 70%;
+  height: fit-content;
   display: flex;
   align-items: center;
   justify-content: center;
